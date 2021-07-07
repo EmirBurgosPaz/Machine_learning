@@ -250,7 +250,7 @@ def init_data_collection():
         num_iter = int(inp) 
         data_collection(num_camera_input,num_iter)
     except ValueError:
-        data_collection()
+        data_collection(num_camera_input)
         
 
 def init_train_network():

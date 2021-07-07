@@ -3,6 +3,7 @@ import numpy as np
 import cv2 
 import os
 
+end_loop = False
 conteo = 300
 
 list_DIR_DATA = ["image_data","image_test"]
@@ -51,6 +52,13 @@ for data_type in list_DIR_DATA:
                 start = True
             elif cv2.waitKey(5) == 27:
                 break 
+            elif cv2.waitKey(1) ==32:
+                    end_loop = True
+                    break
 	    #out.release()
         cv2.destroyAllWindows()
+        if end_loop:
+                break
+    if end_loop:
+        break
 
