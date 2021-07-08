@@ -30,7 +30,7 @@ def score(player_move, random_choice, player_score, cpu_score):
     
 jugadas = [3,4,5]
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(0)
 
 model = load_model("rock-paper-scissors-model.h5")
 
@@ -64,6 +64,8 @@ while True:
 
     if move_code == 1:
         start_game = True
+        player_score = 0
+        cpu_score = 0
     
     if start_game:
         cv2.putText(frame, "Jugando", (10, 50), 

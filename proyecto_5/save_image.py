@@ -24,7 +24,7 @@ for data_type in list_DIR_DATA:
         except OSError as error: 
 	        print(error) 
 
-        cap = cv2.VideoCapture(1)
+        cap = cv2.VideoCapture(0)
         dsize= (128,128)
         count = 0
         start = False
@@ -33,6 +33,8 @@ for data_type in list_DIR_DATA:
             ret, frame = cap.read()
             if conteo == count:
                 break
+            if IMG_SAVE_PATH == "image_test":
+                conteo = int(conteo * 0.2)
             if start:
                 dst = cv2.resize(frame, dsize, 0, 0, cv2.INTER_CUBIC)
                 save_path = os.path.join(IMG_CLASS_PATH, '{}.jpg'.format(count))
