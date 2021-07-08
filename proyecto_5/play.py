@@ -27,12 +27,17 @@ def score(player_move, random_choice, player_score, cpu_score):
 
     return player_score, cpu_score
 
-    
+Inicio_juego = False
+
 jugadas = [3,4,5]
 
 cap = cv2.VideoCapture(0)
-
-model = load_model("rock-paper-scissors-model.h5")
+try:
+    model = load_model("rock-paper-scissors-model.h5")
+    ml_img = cv2.imread("hal.jpg")
+    Inicio_juego = True
+except:
+    print("No hay modelo")
 
 counter = 0
 
@@ -41,13 +46,12 @@ start_game = False
 decision = ""
 lag = 0
 
-ml_img = cv2.imread("hal.jpg")
 
 player_score = 0
 cpu_score = 0
 
 
-while True:
+while Inicio_juego:
     
     fps = cap.get(cv2.CAP_PROP_FPS)
     div = fps*3
