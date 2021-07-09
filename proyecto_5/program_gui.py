@@ -259,11 +259,11 @@ def init_train_network():
 
     try:
         num_epoch = int(inp) 
-        train_network(num_epoch)
-    except ValueError:
         if path.isdir('image_data') and path.isdir('image_test'):
-            train_network()
+            train_network(num_epoch)
         else:
+            messagebox.showerror(title="Error", message="No existen datos")
+    except ValueError:
             messagebox.showerror(title="Error", message="No existen datos")
             return None
     

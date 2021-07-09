@@ -4,7 +4,8 @@ import os
 from os import path
 from keras.preprocessing.image import ImageDataGenerator
 from keras import models, layers, optimizers, regularizers
-
+import time
+start_time = time.time()
 
 if path.isdir('image_data') and path.isdir('image_test'):
     TRAINING_DIR = "image_data"
@@ -23,7 +24,6 @@ if path.isdir('image_data') and path.isdir('image_test'):
         target_size = (150,150),
         class_mode = 'categorical'
     )
-
 
     model = models.Sequential([
         layers.Conv2D(64, (3,3), activation='relu', input_shape = (150,150,3)),
@@ -53,5 +53,7 @@ if path.isdir('image_data') and path.isdir('image_test'):
                     )
 
     model.save("rock-paper-scissors-model.h5")
+
+    print("--- %s seconds ---" % (time.time() - start_time))
 else:
     print("No hay datos")
