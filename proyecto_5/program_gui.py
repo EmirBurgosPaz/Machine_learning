@@ -264,7 +264,10 @@ def init_train_network():
         else:
             messagebox.showerror(title="Error", message="No existen datos")
     except ValueError:
-            messagebox.showerror(title="Error", message="No existen datos")
+            if path.isdir('image_data') and path.isdir('image_test'):
+                train_network()
+            else:
+                messagebox.showerror(title="Error", message="No existen datos")
             return None
     
 def init_start_video():
