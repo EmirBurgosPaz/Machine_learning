@@ -68,7 +68,7 @@ def start_video(input_camera = 0, counter = 0, last = 2, decision = "", lag = 0,
             start_game = True
             player_score = 0
             cpu_score = 0
-
+            
         if start_game:
             cv2.putText(frame, "Jugando", (10, 50), 
                 font, 1.5, (255, 255, 255), 2, cv2.LINE_AA)
